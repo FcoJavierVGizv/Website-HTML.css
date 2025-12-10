@@ -33,7 +33,19 @@ section {
     margin: 0 auto;
 }
 
-.spacing > * + * {
+.split {
+    display: flex;
+    gap: 2em;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &>* {
+        flex-basis: 30%;
+        min-width: 15em;
+    }
+}
+
+.spacing>*+* {
     margin-top: var(--spacer, 2rem);
 }
 
@@ -69,7 +81,8 @@ section {
     text-align: center;
     font-size: clamp(2.5rem, calc(2vw + 1rem), 4rem);
     line-height: 1;
-    color: #17353d
+    color: #17353d;
+    margin-bottom: 5rem;
 }
 
 .hero {
@@ -87,3 +100,20 @@ section {
         background-position: center center;
     }
 }
+
+.featured {
+    background: #eee;
+
+    &__items {
+        display: block;
+        position: relative;
+        transform: scale(.85);
+        transition: transform 250ms ease-in-out;
+
+        &:hover,
+        &:focus {
+            transform: scale(1);
+        }
+    }
+}
+
